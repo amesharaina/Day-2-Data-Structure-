@@ -2,9 +2,9 @@
 #include <stack>
 using namespace std;
 
-struct Q1Stack {
+struct Stack {
 	stack<int> s;
-	int maxele;
+	int maxelement;
 
 	void getMax()
 	{
@@ -15,7 +15,7 @@ struct Q1Stack {
 
 		else
 		{
-			cout <<maxele << "\n";
+			cout <<maxelement << "\n";
 		}
 	}
 
@@ -29,25 +29,25 @@ struct Q1Stack {
 		int t = s.top();
 		s.pop();
 
-		// Max will change if the max element of the stack is being removed.
-		if (t > maxele) {
-			maxele = 2 * maxele - t;
+		
+		if (t > maxelement) {
+			maxelement = 2 * maxelement - t;
 		}
 	}
 
-	// Removes top element from MyStack
+
 	void push(int x)
 	{
 		if (s.empty()) {
-			maxele = x;
+			maxelement = x;
 			s.push(x);
 			return;
 		}
 
-		// If new number is less than maxele
-		if (x > maxele) {
-			s.push(2 * x - maxele);
-			maxele = x;
+		
+		if (x > maxelement) {
+			s.push(2 * x - maxelement);
+			maxelement = x;
 		}
 
 		else{
@@ -59,7 +59,7 @@ struct Q1Stack {
 
 int main()
 {
-	Q1Stack s;
+	Stack s;
 
 	int n,i,choice, inp;
     cin>>n;
